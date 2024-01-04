@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "7458c2f6-9f5c-4f19-94d6-27e20d35a9d7",
+		"name": "adintors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27168335"
+	},
+	"item": [
+		{
+			"name": "books",
+			"item": [
+				{
+					"name": "addBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmRlMmYxOTQ0Nzk2ZmIyZWE2NmY2In0sImlhdCI6MTcwNDM4NjE4NywiZXhwIjoxNzA0Mzg5Nzg3fQ.pkZJlR-FcS_kiVrElKyROvJCiXzzDWIek9HWJhrgheY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmYxMTY4N2FmYTRiODEzN2EyZjFmIn0sImlhdCI6MTcwNDM5MjI3MSwiZXhwIjoxNzA0Mzk1ODcxfQ.1iYL8Vts3lTCXmw-wZYtxoSdpJgqsvcc5PPg5Rzvjqw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "full-girlfriend",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "chetan bhagat",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": [
+										"/Users/hemilmodi/Downloads/1119652.jpg",
+										"/Users/hemilmodi/Downloads/2225502.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/api/book/create-book",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"book",
+								"create-book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getBooks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmRlMmYxOTQ0Nzk2ZmIyZWE2NmY2In0sImlhdCI6MTcwNDM4NjE4NywiZXhwIjoxNzA0Mzg5Nzg3fQ.pkZJlR-FcS_kiVrElKyROvJCiXzzDWIek9HWJhrgheY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmYxMTY4N2FmYTRiODEzN2EyZjFmIn0sImlhdCI6MTcwNDM5MjI3MSwiZXhwIjoxNzA0Mzk1ODcxfQ.1iYL8Vts3lTCXmw-wZYtxoSdpJgqsvcc5PPg5Rzvjqw",
+								"type": "text"
+							},
+							{
+								"key": "page",
+								"value": "1",
+								"type": "text"
+							},
+							{
+								"key": "limit",
+								"value": "10",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "full-girlfriend",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "chetan bhagat",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/api/book/get-books",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"book",
+								"get-books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleBook",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmRlMmYxOTQ0Nzk2ZmIyZWE2NmY2In0sImlhdCI6MTcwNDM4NjE4NywiZXhwIjoxNzA0Mzg5Nzg3fQ.pkZJlR-FcS_kiVrElKyROvJCiXzzDWIek9HWJhrgheY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmU1OTFmMzIwNTcyZmI4MzA4NzNhIn0sImlhdCI6MTcwNDM4Nzk4NSwiZXhwIjoxNzA0MzkxNTg1fQ.JSejeHzb7TbCyLKn8bKdQtbO44pYvmWYkTrmM1nJmFg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"half-girlfriend\",\n    \"author\": \"chetan bhagat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/book/get-book/6596f12387afa4b8137a2f21",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"book",
+								"get-book",
+								"6596f12387afa4b8137a2f21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmRlMmYxOTQ0Nzk2ZmIyZWE2NmY2In0sImlhdCI6MTcwNDM4NjE4NywiZXhwIjoxNzA0Mzg5Nzg3fQ.pkZJlR-FcS_kiVrElKyROvJCiXzzDWIek9HWJhrgheY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmU1OTFmMzIwNTcyZmI4MzA4NzNhIn0sImlhdCI6MTcwNDM4Nzk4NSwiZXhwIjoxNzA0MzkxNTg1fQ.JSejeHzb7TbCyLKn8bKdQtbO44pYvmWYkTrmM1nJmFg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"full-girlfriend\",\n    \"author\": \"chetan bhagat\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/book/update-book/6596f12387afa4b8137a2f21",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"book",
+								"update-book",
+								"6596f12387afa4b8137a2f21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmRlMmYxOTQ0Nzk2ZmIyZWE2NmY2In0sImlhdCI6MTcwNDM4NjE4NywiZXhwIjoxNzA0Mzg5Nzg3fQ.pkZJlR-FcS_kiVrElKyROvJCiXzzDWIek9HWJhrgheY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU5NmU1OTFmMzIwNTcyZmI4MzA4NzNhIn0sImlhdCI6MTcwNDM4Nzk4NSwiZXhwIjoxNzA0MzkxNTg1fQ.JSejeHzb7TbCyLKn8bKdQtbO44pYvmWYkTrmM1nJmFg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "full-girlfriend",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "chetan bhagat",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/hemilmodi/Downloads/1119652.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:4000/api/book/delete-book/6596f12387afa4b8137a2f21",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"book",
+								"delete-book",
+								"6596f12387afa4b8137a2f21"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"hemil.modi2022gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adduser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"hemil.modi2022gmail.com\",\n    \"password\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
