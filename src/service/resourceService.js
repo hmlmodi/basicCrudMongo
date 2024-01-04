@@ -1,11 +1,13 @@
-const Book = require('../model/books'); // Assuming your model is named Book
+// Assuming Book model has 'image' field for the image path
+const Book = require('../model/books');
 
-exports.createBook = async (title, author) => {
+
+exports.createBook = async (title, author, image) => {
   try {
     const book = new Book({
       title,
       author,
-      // Add other fields here based on your Book model
+      image,
     });
 
     const newBook = await book.save();
@@ -16,10 +18,19 @@ exports.createBook = async (title, author) => {
   }
 };
 
-exports.getAllBooks = async () => {
+exports.getAllBooks = async (page, limit) => {
   try {
-    const allBooks = await Book.find({});
-    return allBooks;
+    const allBooks = await Book.find({})
+      .skip((page - 1) * limit)
+      .limit(limit);
+    
+    // Map each book to include the image URL
+    const booksWithImageURL = allBooks.map(book => ({
+      ...book.toJSON(),
+      imageURL: `http://localhost:3000/${book.image}`, // Construct the image URL
+    }));
+    
+    return booksWithImageURL;
   } catch (error) {
     console.error(error.message);
     throw new Error('Could not get books');
@@ -29,7 +40,14 @@ exports.getAllBooks = async () => {
 exports.getSingleBookById = async (bookId) => {
   try {
     const book = await Book.findById(bookId);
-    return book;
+    if (!book) return null;
+    
+    const bookWithImageURL = {
+      ...book.toJSON(),
+      imageURL: `http://localhost:3000/${book.image}`, // Construct the image URL
+    };
+    
+    return bookWithImageURL;
   } catch (error) {
     console.error(error.message);
     throw new Error('Could not get book');
@@ -39,7 +57,14 @@ exports.getSingleBookById = async (bookId) => {
 exports.updateBook = async (bookId, updatedFields) => {
   try {
     const updatedBook = await Book.findByIdAndUpdate(bookId, { $set: updatedFields }, { new: true });
-    return updatedBook;
+    if (!updatedBook) return null;
+
+    const updatedBookWithImageURL = {
+      ...updatedBook.toJSON(),
+      imageURL: `http://localhost:3000/${updatedBook.image}`, // Construct the image URL
+    };
+
+    return updatedBookWithImageURL;
   } catch (error) {
     console.error(error.message);
     throw new Error('Could not update book');
@@ -48,7 +73,9 @@ exports.updateBook = async (bookId, updatedFields) => {
 
 exports.deleteBookById = async (bookId) => {
   try {
-    await Book.findOneAndDelete(bookId);
+    const deletionResult = await Book.findOneAndDelete({ _id: bookId });
+    if (!deletionResult) return null;
+    
     return { message: 'Book removed' };
   } catch (error) {
     console.error(error.message);

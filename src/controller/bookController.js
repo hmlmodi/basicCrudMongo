@@ -18,26 +18,27 @@ const upload = multer({ storage: storage }).single('image');
 exports.createBook = async (req, res) => {
   // Handle file upload
   upload(req, res, async (err) => {
+    // Error handling for multer
     if (err instanceof multer.MulterError) {
-      // Handle multer error
       return res.status(500).json({ message: 'File upload error' });
     } else if (err) {
-      // Handle other errors
       console.error(err.message);
       return res.status(500).send('Server Error');
     }
 
+    // Validation check
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
     const { title, author } = req.body;
-    const image = req.file ? req.file.path : null;
+    const image = req.file ? req.file.path : null; // Extract the image path if uploaded
 
     try {
       const newBook = await BookService.createBook(title, author, image);
-      res.json(newBook);
+      const imageURL = `http://localhost:3000/${newBook.image}`;
+      res.json({ ...newBook.toJSON(), imageURL });
     } catch (error) {
       console.error(error.message);
       res.status(500).send('Server Error');

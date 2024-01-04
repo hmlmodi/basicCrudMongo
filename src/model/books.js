@@ -10,6 +10,10 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  image: {
+    type: String, 
+    required: false,
+  },
   // Other fields specific to your Book model
   // For example: description, genre, publication date, etc.
   // Add more fields as needed
